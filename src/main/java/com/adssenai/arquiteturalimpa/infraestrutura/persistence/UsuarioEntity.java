@@ -17,8 +17,7 @@ public class UsuarioEntity {
     private String password;
     private String email;
 
-    public UsuarioEntity(Integer id, String nome, String password, String email) {
-        this.id = id;
+    public UsuarioEntity(String nome, String password, String email) {
         this.nome = nome;
         this.password = password;
         this.email = email;
