@@ -33,14 +33,13 @@ public class UsuarioServiceGateway implements UsuarioGateway {
 
     @Override
     public void deleteUsuario(Integer id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deleteUsuario'");
+        repository.deleteById(id);
     }
 
     @Override
     public Usuario updateUsuario(Integer id, Usuario usuario) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'updateUsuario'");
+        UsuarioEntity entity = mapper.toEntity(usuario);
+        entity.setId(id);
+        return mapper.toDomain(repository.save(entity));
     }
-
 }
