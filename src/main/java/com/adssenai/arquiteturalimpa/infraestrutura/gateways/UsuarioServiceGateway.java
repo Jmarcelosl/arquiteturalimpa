@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.adssenai.arquiteturalimpa.aplication.gateways.UsuarioGateway;
 import com.adssenai.arquiteturalimpa.domain.Usuario;
 import com.adssenai.arquiteturalimpa.infraestrutura.mappers.UsuarioMapper;
+import com.adssenai.arquiteturalimpa.infraestrutura.persistence.UsuarioEntity;
 import com.adssenai.arquiteturalimpa.infraestrutura.persistence.UsuarioRepository;
 
 @Service
@@ -26,8 +27,8 @@ public class UsuarioServiceGateway implements UsuarioGateway {
 
     @Override
     public List<Usuario> listaUsuarios() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'listaUsuarios'");
+        List<UsuarioEntity> usuarios = repository.findAll();
+        return usuarios.stream().map(u -> mapper.toDomain(u)).toList();
     }
 
     @Override
